@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Calculator with HTML/CSS/JAVASCRIPT</h1>
+        <section id="ss" class="screen">0</section>
+        <section class="calc-buttons">
+            <div class="button-rows">
+                <div type="reset" class="button clear">C</div>
+                <div type="clear" class="button arrow">&larr;</div>
+                <div type="divide" class="button divide">&divide;</div>
+            </div>
+            <div class="button-rows">
+                <div class="button seven">7</div>
+                <div class="button eight">8</div>
+                <div class="button nine">9</div>
+                <div type="multiply" class="button multiply">&times;</div>
+            </div>
+            <div class="button-rows">
+                <div class="button four">4</div>
+                <div class="button five">5</div>
+                <div class="button six">6</div>
+                <div type="subtract" class="button subtract">-</div>
+            </div>
+            <div class="button-rows">
+                <div class="button one">1</div>
+                <div class="button two">2</div>
+                <div class="button three">3</div>
+                <div type="addition" class="button addition">+</div>
+            </div>
+            <div class="button-rows">
+                <div class="button zero">0</div>
+                <div type="result" class="button equal">&equals;</div>
+            </div>
+
+        </section>
+    </div>
+<script type="text/javascript">
+    var first_number=0;
+    var second_number=0;
+    var operator='';
+    var result=0;
+    document.querySelectorAll('.button').forEach(function(cls,inx){
+        cls.addEventListener('click',function(event){
+            operator_type=cls.getAttribute('type');
+            if(operator_type==="clear"){
+                current_value=document.getElementsByClassName('screen')[0].innerHTML;
+                if(current_value!=0){
+                   updated_value=current_value.slice(0, -1);
+                   document.getElementsByClassName('screen')[0].innerHTML=updated_value; 
+                }else{
+                    document.getElementsByClassName('screen')[0].innerHTML=0;
+                }
+            }else if(operator_type==='addition'){
+                operator='addition';
+                document.getElementsByClassName('screen')[0].innerHTML=0;
+            }else if(operator_type==='subtract'){
+                console.log('need to subtract a number');
+                operator='subtract';
+                document.getElementsByClassName('screen')[0].innerHTML=0;    
+            }else if(operator_type==='divide'){
+                console.log('need to divide a number');
+                operator='divide';
+                document.getElementsByClassName('screen')[0].innerHTML=0;
+            }else if(operator_type==='multiply'){
+                console.log('need to multiply a number');
+                operator='multiply';
+                document.getElementsByClassName('screen')[0].innerHTML=0;
+            }else if(operator_type==='result'){
+                console.log('it is a final result');
+                if(first_number && second_number && operator){
+                    switch(operator){
+                        case 'addition':
+                            result=parseInt(first_number)+parseInt(second_number);
+                        break;
+                        case 'subtract':
+                            result=parseInt(first_number)-parseInt(second_number);
+                        break;
+                        case 'multiply':
+                            result=parseInt(first_number)*parseInt(second_number);
+                        break;
+                        case 'divide':
+                            result=parseInt(first_number)/parseInt(second_number);
+                        break;     
+                    }
+                    document.getElementsByClassName('screen')[0].innerHTML=result;
+                    first_number=result;
+                }
+            }else if(operator_type==='reset'){
+                document.getElementsByClassName('screen')[0].innerHTML=0;
+                first_number=0;
+                second_number=0;
+                operator='';
+            }else{
+                value=cls.innerHTML;
+                terminal_value=document.getElementsByClassName('screen')[0].innerHTML;
+                if(terminal_value==0){
+                    terminal_value=value;
+                    if(first_number && operator){
+                        second_number=terminal_value;
+                    }else{
+                        first_number=terminal_value;
+                    }
+                }else{
+                    terminal_value=terminal_value+value;
+                    if(first_number && operator){
+                        second_number=terminal_value;  
+                    }else{
+                        first_number=terminal_value;
+                    }
+                }
+                document.getElementsByClassName('screen')[0].innerHTML=terminal_value;    
+            }
+            console.log(first_number,operator,second_number);
+        });
+    });
+</script>    
+</body>
+</html>
