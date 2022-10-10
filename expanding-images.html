@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanding Boxes</title>
+</head>
+<style>
+    body{
+        background: #c31f48a3;
+    }
+    *{
+    box-sizing: border-box;
+    }
+    #main-doc{
+        display:flex;
+        justify-content: center;
+        position: relative;
+    }
+    .images{
+        width: 50px;
+        border: 5px solid #c31f48a3; 
+        height: 30rem;
+        background-size: cover !important;
+        transition:width 1s linear;        
+    }
+    .images h2{display:none;
+        color: #fff;
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+    }
+    h1{text-align: center;}
+    .images.active{width:50%;}
+    .images.active h2{display:inline-block;}
+</style>
+<body>
+<main>
+    <h1>Expanding Images</h1>
+    <div id="main-doc"> 
+        <div class="images active" style="background:url('C:/Darshan/cover/hands1.png')">
+            <h2>Hands1</h2>
+        </div>
+        <div class="images" style="background:url('C:/Darshan/cover/hands2.png')">
+            <h2>Hands2</h2>
+        </div>
+        <div class="images" style="background:url('C:/Darshan/cover/hands3.jpg')">
+            <h2>Hands3</h2>
+        </div>
+        <div class="images" style="background:url('C:/Darshan/cover/hands4.png')">
+            <h2>Hands4</h2>
+        </div>
+        <div class="images" style="background:url('C:/Darshan/cover/hands5.png')">
+            <h2>Hands5</h2>
+        </div>  
+    </div>    
+</main>
+ <script type="text/javascript">
+    removeclass = function(){
+        document.querySelectorAll('.images').forEach(function(value){
+            if(value.classList.contains("active")){value.classList.remove("active");}
+        });    
+    }
+    document.querySelectorAll('.images').forEach(function(value){
+        value.addEventListener('click',function(){
+            removeclass();
+            value.classList.add("active");
+        });
+    });
+ </script>   
+</body>
+</html>
