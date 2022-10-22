@@ -1,0 +1,135 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+@font-face {
+    font-family: 'shadows-regular';
+    src:url('./ShadowsIntoLight-Regular.woff') format('woff'),
+    url('./ShadowsIntoLight-Regular.tff') format('tff');
+    font-weight: normal;
+    font-style: normal;
+}
+#head{
+    text-align: -webkit-center;
+    padding:140px 0;
+    background-color: #bcabab;
+}
+ul{
+    list-style-type: none;
+}
+h1{
+    padding-bottom:30px;
+    text-transform: uppercase;
+    font-family: 'shadows-regular';
+}
+li{
+padding: 7px;
+color: #000;
+font-family: shadows-regular;
+font-size: 40px;
+font-weight: bolder;
+}
+.clock{
+    position: relative;
+list-style-type: none;
+display: flex;
+justify-content: center;
+box-shadow:inset 1px 1px 20px -5px #000, 1px 1px 10px 1px #000;
+border-radius: 50%;
+width:30%;
+height:400px;
+background:#ff7280;
+border: 5px solid #ff7280;
+}
+.hour{
+    position: absolute;
+width: 20%;
+border: 5px solid #000;
+top: 50%;
+left: 50%;
+transform-origin: left;
+transform: translate(10px, 10px) rotate(320deg);
+background-color: #000;
+}
+.second{
+position: absolute;
+width: 30%;
+border: 5px solid #000;
+top: 50%;
+left: 50%;
+transform-origin: left;
+transform: translate(10px, 10px) rotate(220deg);
+background-color: #000;
+}
+.minute{
+    position: absolute;
+width: 30%;
+border: 5px solid #000;
+top: 50%;
+left: 50%;
+transform-origin: left;
+transform: translate(10px, 10px) rotate(520deg);
+background-color: #000;
+}
+.class-1{
+    position:absolute;
+    right:20%;
+    top:5%;
+}
+.class-2{
+    position: absolute;
+    right:5%;
+    top:20%;
+}
+.class-3{
+    position: absolute;
+    right: 0;
+    top:40%;
+}
+.class-4{
+    position: absolute;
+    right: 8%;
+    top: 65%;
+}
+.class-5{
+    position: absolute;
+    right: 22%;
+    top: 78%;
+}
+.class-6{
+    position: absolute;
+    bottom: -20px;
+    left:47%;
+}
+.class-7{
+    position: absolute;
+    left: 22%;
+    top: 78%;
+}
+.class-8{
+    position: absolute;
+    left: 8%;
+    top: 65%;
+}
+.class-9{
+    position: absolute;
+    left: 0;
+    top:40%;
+}
+.class-10{
+    position: absolute;
+    left:5%;
+    top:20%;
+}
+.class-11{
+    position:absolute;
+    left:20%;
+    top:5%;
+}
+.class-12{
+    position: absolute;
+    top:-20px;
+    padding: 5px 0 0 0;
+    left:47%;
+}
